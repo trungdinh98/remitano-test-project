@@ -17,5 +17,12 @@ body > iframe {
 }
 
 .main {
-  display: block;
+  min-height: 100vh;
+  .header {
+    display: block;
+    padding: 0 15em;
+    background-color: #ffffff !important;
+    box-shadow: none !important;
+    position: relative;
+  }
 }

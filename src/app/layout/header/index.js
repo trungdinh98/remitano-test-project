@@ -1,55 +1,78 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-} from '@material-ui/core';
-import { AccountCircle, VideoCall, ExitToApp } from '@material-ui/icons';
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import { VideoCall, ExitToApp, House } from '@material-ui/icons';
+import './style.scss';
 
-const Header = ({ user, handleLogin, handleLogout, handleShare }) => {
+const Header = ({
+  user,
+  handleLogin,
+  handleLogout,
+  handleShare,
+  renderErrorMessage,
+}) => {
   const isLoggedIn = !!user;
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className="app-header">
       <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          MyApp
+        <div className="header-logo">
+          <House />
+        </div>
+        <Typography className="header-title" style={{ flexGrow: 1 }}>
+          Funny Movies
         </Typography>
 
         {isLoggedIn ? (
           <>
-            <IconButton color="inherit" onClick={handleShare}>
+            <div className="welcome-title">{`Welcome ${user.username}`}</div>
+            <Button
+              className="header-button"
+              color="inherit"
+              onClick={handleShare}
+            >
               <VideoCall />
-            </IconButton>
+              &nbsp;Share a movie
+            </Button>
 
-            <IconButton color="inherit" onClick={handleLogout}>
+            <Button
+              className="header-button"
+              color="inherit"
+              onClick={handleLogout}
+            >
               <ExitToApp />
-            </IconButton>
+              &nbsp;Logout
+            </Button>
           </>
         ) : (
           <>
-            <form onSubmit={handleLogin}>
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <Button type="submit" color="inherit">
-                Login
-              </Button>
-            </form>
-
-            <Button component={Link} to="/register" color="inherit">
-              Register
-            </Button>
-          </>
-        )}
-
-        {user && (
-          <>
-            <IconButton color="inherit" component={Link} to="/profile">
-              <AccountCircle />
-            </IconButton>
+            <div>
+              <form className="form" onSubmit={handleLogin}>
+                <div className="input-container">
+                  <input
+                    placeholder="email"
+                    type="text"
+                    name="uname"
+                    required
+                  />
+                </div>
+                <div className="input-container">
+                  <input
+                    placeholder="password"
+                    type="password"
+                    name="pass"
+                    required
+                  />
+                  <div className="render-error">
+                    {renderErrorMessage('pass')}
+                  </div>
+                </div>
+                <div className="button-container">
+                  <Button type="submit" color="inherit">
+                    Login/Register
+                  </Button>
+                </div>
+              </form>
+            </div>
           </>
         )}
       </Toolbar>
