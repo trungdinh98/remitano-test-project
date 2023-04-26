@@ -9,74 +9,79 @@
   box-shadow: none !important;
 
   .header-logo {
-    margin-right: 10px;
-  }
-
-  .header-title {
-    font-size: xxx-large;
-    font-weight: 600;
-    font-family: cursive;
-  }
-
-  .welcome-title {
-    font-family: cursive;
-    font-size: large;
-  }
-
-  .header-button {
-    margin: 0 20px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: cursive;
-    background: #ffffff;
-    box-shadow: 5px 5px #000;
-    border: solid 1px #000;
-    padding: 5px;
-  }
-
-  .form {
     display: flex;
-    justify-items: center;
+    min-height: inherit;
+    align-items: center;
 
-    .input-container {
-      font-size: large;
-      margin: 25px 10px;
-
-      input[type="text"],
-      input[type="password"] {
-        font-family: cursive;
-        height: 30px;
-        padding-left: 10px;
-        margin-right: 10px;
-        border: 2px solid rgba(0, 0, 0, 1);
-      }
-
-      .render-error {
-        position: absolute;
-        font-family: cursive;
-        font-size: x-small;
-        color: red;
-      }
+    .header-title {
+      font-size: xxx-large;
+      font-weight: 600;
+      font-family: cursive;
     }
-    .button-container {
+  }
+  .header-content {
+    display: flex;
+    align-items: center;
+    .welcome-title {
+      font-family: cursive;
+      font-size: large;
+    }
+
+    .header-button {
+      margin: 0 20px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: cursive;
+      background: #ffffff;
+      box-shadow: 5px 5px #000;
+      border: solid 1px #000;
+      padding: 5px;
+    }
+
+    .form {
       display: flex;
-      align-items: center;
+      justify-items: center;
 
-      button[type="submit"] {
-        margin-left: 10px;
-        cursor: pointer;
-        font-size: 15px;
-        font-weight: 600;
-        font-family: cursive;
-        background: #ffffff;
-        box-shadow: 5px 5px #000;
-        border: solid 1px #000;
-        padding: 5px 20px;
+      .input-container {
+        font-size: large;
+        margin: 25px 10px;
+
+        input[type="text"],
+        input[type="password"] {
+          font-family: cursive;
+          height: 30px;
+          padding-left: 10px;
+          margin-right: 10px;
+          border: 2px solid rgba(0, 0, 0, 1);
+        }
+
+        .render-error {
+          position: absolute;
+          font-family: cursive;
+          font-size: x-small;
+          color: red;
+        }
       }
+      .button-container {
+        display: flex;
+        align-items: center;
 
-      button[type="submit"]:hover {
-        background: #6cf0c2;
+        button[type="submit"] {
+          margin-left: 10px;
+          cursor: pointer;
+          font-size: 15px;
+          font-weight: 600;
+          font-family: cursive;
+          background: #ffffff;
+          box-shadow: 5px 5px #000;
+          border: solid 1px #000;
+          padding: 5px 20px;
+        }
+
+        button[type="submit"]:hover {
+          background: #6cf0c2;
+        }
       }
     }
   }

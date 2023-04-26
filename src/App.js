@@ -5,9 +5,6 @@ import ContainerLayout from './app/layout/container-layout';
 import { Route, Routes, useNavigate, Outlet } from 'react-router-dom';
 import { useAuth } from './app/hooks/useAuth';
 
-const LandingPage = React.lazy(() =>
-  import('./app/pages/landing-page/LandingPage')
-);
 const HomePage = React.lazy(() => import('./app/pages/home-page/HomePage'));
 const Share = React.lazy(() => import('./app/pages/share-page/Share'));
 
@@ -24,10 +21,8 @@ function App(): JSX.Element {
 
   React.useEffect(() => {
     if (localStorage.user !== 'null') {
-      console.log(localStorage.user);
       const expirationTime = (JSON.parse(localStorage.user).exp + 86400) * 100;
       if (Date.now() >= expirationTime) {
-        console.log(localStorage.user.exp);
         logOut();
       }
     }
@@ -47,7 +42,7 @@ function App(): JSX.Element {
             </ContainerLayout>
           }
         >
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<HomePage />} />
         </Route>
         <Route
           element={

@@ -1,1 +1,38 @@
 /* Share page */
+
+.share-page {
+  position: relative;
+  font-family: cursive;
+  box-shadow: 5px 5px #000;
+  border: solid 1px #000;
+  .label-share {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    padding: 0 4px;
+    background-color: #fff;
+    font-size: larger;
+  }
+  .share-form {
+    margin: 100px;
+    .MuiButton-label {
+      font-size: 15px;
+      font-weight: 600;
+      font-family: cursive;
+    }
+    .button-share {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: cursive;
+      background: #ffffff;
+      box-shadow: 5px 5px #000;
+      border: solid 1px #000;
+      padding: 5px;
+    }
+  }
+}

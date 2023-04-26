@@ -87,7 +87,7 @@ const ContainerLayout: React.FC<ContainerLayoutProps> = ({ children }) => {
     );
 
   const handleShare = () => {
-    navigate(`/`);
+    navigate(`/share`);
   };
 
   React.useEffect(() => {
