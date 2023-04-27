@@ -6,7 +6,7 @@ import { Route, Routes, useNavigate, Outlet } from 'react-router-dom';
 import { useAuth } from './app/hooks/useAuth';
 
 const HomePage = React.lazy(() => import('./app/pages/home-page/HomePage'));
-const Share = React.lazy(() => import('./app/pages/share-page/Share'));
+const SharePage = React.lazy(() => import('./app/pages/share-page/SharePage'));
 
 function App(): JSX.Element {
   const queryClient = new QueryClient();
@@ -56,7 +56,7 @@ function App(): JSX.Element {
           }
         >
           <Route path="/" element={<HomePage />} />
-          <Route path="/share" element={<Share />} />
+          <Route path="/share" element={<SharePage />} />
         </Route>
       </Routes>
     </QueryClientProvider>
