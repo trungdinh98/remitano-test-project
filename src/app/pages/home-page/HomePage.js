@@ -14,20 +14,21 @@ import Grid from '@mui/material/Grid';
 const YOUTUBE_API_KEY = 'AIzaSyCY_cIummVhoQCRPK3hLUIiIrOdiuhagqg';
 
 const HomePage: React.FC = () => {
-  const [isLogIn, setIsLogIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [videos, setVideos] = useState([]);
-  const [isLiked, setIsLiked] = React.useState(false);
-  const [isDisLiked, setIsDisLiked] = React.useState(false);
+  const [likeState, setLikeState] = useState(null);
+
   const handleLike = () => {
-    setIsLiked(!isLiked);
+    setLikeState(likeState === 'liked' ? null : 'liked');
   };
+
   const handleDislike = () => {
-    setIsDisLiked(!isDisLiked);
+    setLikeState(likeState === 'disliked' ? null : 'disliked');
   };
 
   useEffect(() => {
     if (localStorage.user !== 'null') {
-      setIsLogIn(true);
+      setIsLoggedIn(true);
     }
     const fetchData = async () => {
       const response = await axios.get(
@@ -68,14 +69,18 @@ const HomePage: React.FC = () => {
             <div className="video-action">
               <div className="action">
                 <div>{video.statistics.likeCount}</div>
-                <Button onClick={handleLike} disabled={!isLogIn}>
-                  {isLiked ? <ThumbUp /> : <ThumbUpAltOutlined />}
+                <Button onClick={handleLike} disabled={!isLoggedIn}>
+                  {likeState === 'liked' ? <ThumbUp /> : <ThumbUpAltOutlined />}
                 </Button>
               </div>
               <div className="action">
                 <div>{Math.floor(video.statistics.likeCount / 10)}</div>
-                <Button onClick={handleDislike} disabled={!isLogIn}>
-                  {isDisLiked ? <ThumbDown /> : <ThumbDownAltOutlined />}
+                <Button onClick={handleDislike} disabled={!isLoggedIn}>
+                  {likeState === 'disliked' ? (
+                    <ThumbDown />
+                  ) : (
+                    <ThumbDownAltOutlined />
+                  )}
                 </Button>
               </div>
             </div>
