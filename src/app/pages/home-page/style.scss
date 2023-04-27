@@ -1,2 +1,39 @@
 /* Home page */
 
+.home-page {
+  width: 100%;
+  .video-card {
+    padding: 1em 5em;
+    .video-content {
+      display: flex;
+      flex-direction: column;
+      padding-left: 2.5em;
+      .video-detail {
+        font-family: cursive;
+
+        .video-title {
+          font-size: larger;
+          font-weight: 600;
+          color: red;
+        }
+        .video-author {
+          padding: 1em 0 0 0;
+        }
+        .video-description {
+          padding-top: 0.5em;
+          font-size: x-small;
+        }
+      }
+      .video-action {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .action {
+          padding: 1em 0;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
